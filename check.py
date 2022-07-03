@@ -75,3 +75,45 @@ def fast_fib(n=30):
     for i in range(2, n):
         a, b = b, a + b
     return b
+
+
+from functools import lru_cache
+
+lru_cache()
+
+
+@def_time
+def fasted_fib(n=30):  # используйте механизм кеширования для ускорения рекурсивной функции
+    res = (1 if n in (1, 2) else low_fib(n - 1) + low_fib(n - 2))
+
+
+# используйте collections.Counter для ускорения подсчета
+@def_time
+def low_counter():
+
+    values_count = {}
+    for i in data:
+        i_cnt = values_count.get(i, 0)
+        values_count[i] = i_cnt + 1
+    _ = values_count.get(4, 0)
+
+
+from collections import Counter
+@def_time
+def fast_counter():
+    data = [x ** 2 % 1989 for x in range(2000000)]
+    values_count = Counter(data)
+    _ = values_count.get(4, 0)
+
+# используйте collections.ChainMap для ускорения объединения словарей
+def low_dict_update():
+    dict_a = {i: i + 1 for i in range(1,1000000, 2)}
+    dict_b = {i: i*2 + 1 for i in range(1, 1000000, 3)}
+    dict_c = {i: i*3 + 1 for i in range(1, 1000000, 4)}
+    dict_d = {i: i*4 + 1 for i in range(1, 1000000, 5)}
+    res = dict_a.copy()
+    res.update(dict_a)
+    res.update(dict_b)
+    res.update(dict_c)
+    res.update(dict_d)
+    _ = res.get(9999)
