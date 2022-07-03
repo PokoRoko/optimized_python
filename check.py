@@ -139,6 +139,8 @@ def fast_dict_update():
 def low_gen():
     _ = [x ** 2 for x in range(1, 1000000, 3)]
 
+
 @def_time
 def fast_gen():
-    _ = map(lambda x:x**2, range(1,1000000,3))
+    _ = map(lambda x: x ** 2, range(1, 1000000, 3))
+
